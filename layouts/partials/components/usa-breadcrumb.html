@@ -1,8 +1,9 @@
 <nav class="usa-breadcrumb" aria-label="Breadcrumbs">
   <ol class="usa-breadcrumb__list">
+    {{- $activePage := .Page -}}
     {{- range $index, $page := append .Page $.Ancestors.Reverse -}}
       {{- if gt $index 0 -}}
-        {{- template "usa-breadcrumb-item" (dict "page" . "activePage" .Page) -}}
+        {{- template "usa-breadcrumb-item" (dict "page" . "activePage" $activePage) -}}
       {{- end -}}
     {{- end -}}
   </ol>
