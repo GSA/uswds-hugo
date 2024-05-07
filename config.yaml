@@ -1,15 +1,17 @@
 name: "The United States Web Design System (USWDS) 2.0 Hugo Theme"
 license: "CCO"
-licenselink: "https://github.com/usnistgov/hugo-uswds/blob/master/LICENSE.md"
-description: "A hugo theme based on the United States Web Design System (USWDS) 2.0"
-homepage: "https://github.com/usnistgov/hugo-uswds"
+licenselink: "https://github.com/GSA/uswds-hugo/blob/main/LICENSE.md"
+description: "A hugo theme based on the United States Web Design System (USWDS) v3"
+homepage: "https://github.com/GSA/uswds-hugo"
 tags:
 features:
 author:
   name: "David Waltermire"
-  homepage: "https://www.nist.gov/people/david-waltermire"
+  homepage: "https://github.com/david-waltermire"
 original:
-  name: "The United States Web Design System (USWDS) 2.0"
+  repo: "https://github.com/usnistgov/hugo-uswds"
+based:
+  name: "The United States Web Design System (USWDS) v3"
   homepage: "https://designsystem.digital.gov/"
   repo: "https://github.com/uswds/uswds"
 module:

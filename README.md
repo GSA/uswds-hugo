@@ -1,14 +1,10 @@
 # hugo-uswds
 
-An open-source implementation of the [The United States Web Design System ](https://designsystem.digital.gov/) (USWDS) version 2.11.1 using the [Hugo](https://gohugo.io/) open-source static site generator.
-
-Implementation of the USWDS is currently incomplete, but sufficient to support a number of websites hosted at NIST. [Contributions](CONTRIBUTING.md) to improve this project are welcome.
+An open-source implementation of the [The United States Web Design System ](https://designsystem.digital.gov/) (USWDS) using the [Hugo](https://gohugo.io/) open-source static site generator.
 
 This project has been tested on HUGO version >= [0.111.2](https://github.com/gohugoio/hugo/releases/latest) and requires a `hugo-extended` build with pipe and SCSS generation support. Installation [instructions](https://gohugo.io/getting-started/installing) for common platforms are available in the Hugo [documentation](https://gohugo.io/documentation/).
 
-## Usage
-
-For details on using this theme, refer to [the documentation and demo site](https://pages.nist.gov/hugo-uswds/).
+This implementation is based on [previous work](https://github.com/usnistgov/hugo-uswds) by the National Institute of Standards and Technology.
 
 ### Installation
 
@@ -22,7 +18,7 @@ params:
   header:
     project_name: long name, e.g. Hugo US Web Design System Theme
     project_shortname: short name, e.g. Hugo USWDS
-  contentRepoPath: (optional) path to Hugo content, e.g. https://github.com/usnistgov/hugo-uswds/tree/master/docs/content
+  contentRepoPath: (optional) path to Hugo content, e.g. https://github.com/GSA/uswds-hugo/tree/main/website/content
   searchAffiliate: search.gov affiliate identifier
   usabanner: true # enable to USWDS usa banner for the site
 markup:
@@ -53,7 +49,7 @@ For detailed instruction, refer to the [Hugo Module documentation](https://gohug
     ```yaml
     module:
       imports: # import this repository as a hugo module
-      - path: "github.com/usnistgov/hugo-uswds"
+      - path: "github.com/GSA/uswds-hugo"
     ```
 
 1. The theme will be downloaded the next time you run `hugo serve`.
@@ -64,7 +60,7 @@ For detailed instruction, refer to the [Hugo Module documentation](https://gohug
 
     ```bash
     mkdir themes
-    git submodule add https://github.com/usnistgov/hugo-uswds.git themes/uswds
+    git submodule add https://github.com/GSA/uswds-hugo.git themes/uswds
     ```
 
 1. In your project directory, update your `config.yaml` with the following:
@@ -96,3 +92,19 @@ For building prior to release:
 ```bash
 npm run prepare
 ```
+
+## Need installation help?
+
+Do you have questions or need help with setup? Did you run into any weird errors while following these instructions? Feel free to open an issue here:
+
+[https://github.com/GSA/uswds-hugo/issues](https://github.com/GSA/uswds-hugo/issues).
+
+You can also email us directly at [oscal@fedramp.gov](mailto:oscal@fedramp.gov).
+
+## Licenses and attribution
+
+This project is in the worldwide public domain, released under the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+
+## Contributing
+
+All contributions to this project will be released under the CC0 dedication alongside the public domain portions of this project. For more information, see [CONTRIBUTING.md](CONTRIBUTING.md).

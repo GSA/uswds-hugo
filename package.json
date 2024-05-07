@@ -14,12 +14,12 @@
     "clean": "npx rimraf ./build ./dist ./_bundles",
     "prepare": "npm run clean && npm run bundle && npm run uswds && npm run copy"
   },
-  "author": "David Waltermire <david.waltermire@nist.gov>",
+  "author": "David Waltermire <david.waltermire@nistgsa.gov>",
   "license": "CC0-1.0",
-  "homepage": "https://github.com/usnistgov/hugo-uswds",
+  "homepage": "https://github.com/GSA/uswds-hugo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/usnistgov/hugo-uswds"
+    "url": "https://github.com/GSA/uswds-hugo"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.16",

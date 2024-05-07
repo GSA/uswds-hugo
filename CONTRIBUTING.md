@@ -1,6 +1,16 @@
-# Contributing to this Project
+# Welcome!
+
+We are glad you’re thinking about contributing to the FedRAMP Automation Website project!
+
+We’re an open source project that accepts contributions from our community members. The USWDS Hugo project is the result of community contributions, large and small. Your contribution helps to make FedRAMP processes more automated. 
 
 This page is for potential contributors to this project. It provides basic information on the project, describes the main ways people can make contributions, explains how to report issues relating to the project and project artifacts, and lists pointers to additional sources of information.
+
+## Code of Conduct
+
+GSA is committed to building a safe, welcoming, harassment-free culture for everyone. The FedRAMP Automation Project is a part of the Technology Transformation Services (TTS) within the General Services Administration (GSA) and we expect everyone to follow the [GSA TTS Code of Conduct](https://handbook.tts.gsa.gov/about-us/code-of-conduct/).
+
+We encourage you to read this project’s Contribution Guide (you are here), its [LICENSE](https://github.com/GSA/automate.fedramp.gov/blob/main/LICENSE.md) and its [README](https://github.com/GSA/automate.fedramp.gov/blob/main/README.md). If you want to read more about our open source policy or have questions, check out the [GSA Open Source Policy GitHub repository](https://github.com/GSA/open-source-policy) or send us an [email](mailto:oscal@fedramp.gov).
 
 ## Project approach
 
@@ -45,41 +55,18 @@ This repository consists of the following directories and files pertaining to th
 
 ## Contributing as a Developer
 
-This project is using the GitHub [project cards](../../projects) feature to track development activities as part of the core project work stream.
+This project is using the GitHub [project](../../projects) feature to track development activities as part of the core project work stream.
 
-### User Stories
+## Licenses and Attribution
 
-Each development activity uses a set of [user stories](../../issues?q=is%3Aopen+is%3Aissue+label%3A%22User+Story%22), that represent features, actions, or enhancements that are intended to be developed. Each user story is based on a [template](../../issues/new?template=feature_request.md&labels=enhancement%2C+User+Story) and describes the basic problem or need to be addressed, a set of detailed goals to accomplish, any dependencies that must be addressed to start or complete the user story, and the criteria for acceptance of the contribution.
+This implementation is based on [previous work](https://github.com/usnistgov/hugo-uswds) by the National Institute of Standards and Technology which was made available by NIST under the CC0 dedication.
 
-The goals in a user story will be bulleted, indicating that each goal can be worked on in parallel, or numbered, indicating that each goal must be worked on sequentially. Each goal will be assigned to one or more individuals to accomplish.
+### This project is in the public domain
 
-Any user story can be worked on at any time by any project contributor. When a user story is not assigned to a developer, its status will not be tracked as part of our project management efforts, but when completed will still be considered as a possible contribution to the project.
+This project is in the worldwide [public domain](https://github.com/GSA/automate.fedramp.gov/blob/main/LICENSE.md).
 
-### Reporting User Story Status
+This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 
-When working on a goal that is part of a user story you will want to provide a periodic report on any progress that has been made until that goal has been completed. This status may be reported as a comment to the associated user story issue.
-
-When describing any open issues encountered use an "\@mention" of the individual who needs to respond to the issue. This will ensure that the individual is updated with this status.
-
-### Project Status
-
-The project cards will be in one of the following states:
-
-* **New Issue** - The issue has been newly created and has not been triaged.
-* **Discussion Needed** - The issue has been triaged, but does not sufficiently describe the problem to be addressed or does not indicate sufficient details to start development. More discussion is needed to work out these details.
-* **Backlog** - The issue has been triaged as a lower priority and is saved for development in the future.
-* **Assigned to Developer** - The issue has been triaged and assigned to a developer to work on.
-* **In Progress** - The assigned developer(s) has started development work on the issue.
-* **Under Review** - The development work indicated by the issue has been completed and this work is ready for code review.
-* **Review Approved** - The development work has been reviewed and the code is ready to be merged.
-* **Complete** - The development work has been merged and the issue is resolved.
-
-Note: A pull request must be submitted for all issue goals before an issue will be moved to the "under review" status. If any goals or acceptance criteria have not been met, then the user story will be commented on to provide feedback, and the issue will be returned to the "In progress" state.
-
-## Licenses and attribution
-
-For complete attribution and licensing information for parts of the project that are not in the public domain, see the [LICENSE](LICENSE.md).
-
-## Contributions will be released into the public domain
+### Contributions will be released into the public domain
 
 All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
