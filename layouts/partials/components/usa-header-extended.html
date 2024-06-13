@@ -5,8 +5,7 @@
     <div id="extended-logo" class="usa-logo site-logo">
       <em class="usa-logo__text site-logo__text">
         <a href="{{ urls.Ref .Page "/" | relURL }}" title="{{ .Site.Params.header.project_name }}" aria-label="Home">
-          <span class="site-title--short">{{ .Site.Params.header.project_shortname }}</span>
-          <span class="site-title--long">{{ .Site.Params.header.project_name }}</span>
+          {{ partialCached "header-logo.html" . }}
         </a>
       </em>
     </div>
