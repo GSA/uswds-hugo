@@ -1,2 +1,6 @@
-<span class="site-title--short">{{ .Site.Params.header.project_shortname }}</span>
-<span class="site-title--long">{{ .Site.Params.header.project_name }}</span>
+<a class="usa-logo__text site-logo__text" href="{{ urls.Ref .Page "/" | relURL }}" title="{{ .Site.Params.header.project_name }}" aria-label="Home">
+  <em>
+    <span class="site-title--short">{{ .Site.Params.header.project_shortname }}</span>
+    <span class="site-title--long">{{ .Site.Params.header.project_name }}</span>
+  </em>
+</a>

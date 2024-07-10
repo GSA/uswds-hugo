@@ -3,11 +3,7 @@
 <header class="usa-header usa-header--extended site-header">
   <div class="usa-navbar site-header__navbar">
     <div id="extended-logo" class="usa-logo site-logo">
-      <em class="usa-logo__text site-logo__text">
-        <a href="{{ urls.Ref .Page "/" | relURL }}" title="{{ .Site.Params.header.project_name }}" aria-label="Home">
-          {{ partialCached "header-logo.html" . }}
-        </a>
-      </em>
+      {{ partialCached "header-logo.html" . }}
     </div>
     <div class="site-nav-secondary usa-nav__secondary">
       {{ if .Site.Menus.secondary }}

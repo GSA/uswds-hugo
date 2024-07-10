@@ -6,7 +6,7 @@ updates:
       interval: "daily"
     target-branch: "develop"
   - package-ecosystem: "gomod"
-    directory: "/website"
+    directory: "/"
     schedule:
       interval: "daily"
     target-branch: "develop"
