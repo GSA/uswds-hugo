@@ -75,7 +75,7 @@ headers = []
 #remap = ["https://example.com http://example.invalid"]
 
 # Base URL or website root directory to check relative URLs.
-base = "https://pages.nist.gov/hugo-uswds"
+base = "https://gsa.gov/hugo-uswds"
 
 # HTTP basic auth support. This will be the username and password passed to the
 # authorization HTTP header. See
@@ -95,7 +95,7 @@ include_verbatim = false
 glob_ignore_case = false
 
 # Exclude URLs and mail addresses from checking (supports regex).
-exclude = ['^https://search\.usa\.gov/search', '^https://github\.com/usnistgov/hugo-uswds/tree/master/website/content/']
+exclude = ['^https://search\.usa\.gov/search', '^https://github\.com/GSA/hugo-uswds/tree/master/website/content/']
 
 # Exclude these filesystem paths from getting checked.
 #exclude_path = ["file/path/to/Ignore", "./other/file/path/to/Ignore"]

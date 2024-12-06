@@ -19,7 +19,7 @@ on:
       site_git_ref:
         description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
-        default: 'nist-pages'
+        default: 'pages'
         type: string
       site_git_ref_path:
         description: 'the subdirectory to check out git ref and check links in website content'
@@ -50,7 +50,7 @@ jobs:
     uses: ./.github/workflows/workflow-validate-website-content.yml
     if: github.event_name != 'workflow_dispatch'
     with:
-      site_git_ref: 'nist-pages'
+      site_git_ref: 'pages'
       site_git_ref_path: 'published'
       linkcheck_create_issue: true
   schedule-validate-website-links-debug:

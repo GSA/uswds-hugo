@@ -22,15 +22,12 @@ The following is an example of defining a portion of a menu in the site configur
 ```yaml
 menu:
   primary:
-  - name: "NIST website"
-    url: "https://www.nist.gov/"
+  - name: "GSA website"
+    url: "https://gsa.gov/"
     weight: 10
   secondary:
-  - name: "Website Github"
-    url: "https://github.com/usnistgov/hugo-uswds-docs"
-    weight: 90
   - name: "Theme Github"
-    url: "https://github.com/usnistgov/hugo-uswds"
+    url: "https://github.com/GSA/uswds-hugo"
     weight: 90
 ```
 

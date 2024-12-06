@@ -7,7 +7,7 @@ weight: 90
 
 ### Sass Customizations
 
-Sass files are located in the themes [`assets/scss`](https://github.com/usnistgov/hugo-uswds/blob/master/assets/scss) directory.
+Sass files are located in the themes [`assets/scss`](https://github.com/GSA/uswds-hugo/tree/develop/sass) directory.
 
 ### Site-Wide CSS Resources
 

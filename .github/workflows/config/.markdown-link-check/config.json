@@ -19,25 +19,25 @@
             "pattern": "https://www.congress.gov/"
         },
         {
-            "pattern": "https://pages.nist.gov/hugo-uswds/"
+            "pattern": "https://gsa.gov/hugo-uswds/"
         }
   ],
   "replacementPatterns": [
         {
             "pattern": "^../../issues",
-            "replacement": "https://github.com/usnistgov/hugo-uswds/issues"
+            "replacement": "https://github.com/GSA/uswds-hugo/issues"
         },
         {
             "pattern": "^../../projects",
-            "replacement": "https://github.com/usnistgov/hugo-uswds/projects"
+            "replacement": "https://github.com/GSA/uswds-hugo/projects"
         },
         {
             "pattern": "^../../releases",
-            "replacement": "https://github.com/usnistgov/hugo-uswds/releases"
+            "replacement": "https://github.com/GSA/uswds-hugo/releases"
         },
         {
             "pattern": "^../../tree",
-            "replacement": "https://github.com/usnistgov/hugo-uswds/tree"
+            "replacement": "https://github.com/GSA/uswds-hugo/tree"
         }
     ]
 }

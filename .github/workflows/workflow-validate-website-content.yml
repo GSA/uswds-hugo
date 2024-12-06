@@ -5,7 +5,7 @@ on:
       site_git_ref:
         description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
-        default: 'nist-pages'
+        default: 'pages'
         type: string
       site_git_ref_path:
         description: 'the subdirectory to check out git ref and check links in website content'

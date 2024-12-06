@@ -2,9 +2,6 @@ name: Question
 description: Ask your question
 labels: ['question']
 body:
-  - type: markdown
-    attributes:
-      value: Please note, the [Q&A discussion board](https://github.com/usnistgov/vulntology/discussions/categories/q-a) is a more appropriate place for asking most questions.
   - type: textarea
     id: question-text
     attributes:

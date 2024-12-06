@@ -128,7 +128,7 @@ jobs:
       name: Link Checker
       uses: lycheeverse/lychee-action@ec3ed119d4f44ad2673a7232460dc7dff59d2421
       with:
-        args: --exclude-file .github/workflows/config/.lycheeignore --verbose --no-progress --accept 200,206,429 './website/public/**/*.html' --remap "https://pages.nist.gov/hugo-uswds/ file://${GITHUB_WORKSPACE}/website/public/hugo-uswds/" --exclude-mail
+        args: --exclude-file .github/workflows/config/.lycheeignore --verbose --no-progress --accept 200,206,429 './website/public/**/*.html' --remap "https://gsa.gov/hugo-uswds file://${GITHUB_WORKSPACE}/website/public/hugo-uswds/" --exclude-mail
         format: markdown
         output: html-link-report.md
         debug: true
@@ -164,8 +164,8 @@ jobs:
         github_token: ${{ env.GH_TOKEN }}
         enable_jekyll: false
         publish_dir: ./website/public
-        publish_branch: nist-pages
+        publish_branch: pages
         commit_user_name: GitHub Actions Bot
-        commit_user_email: metaschema@nist.gov
-        commit_author: GitHub Actions Bot <metaschema@nist.gov>
+        commit_user_email: oscal@fedramp.gov
+        commit_author: GitHub Actions Bot <oscal@fedramp.gov>
         commit_message: Deploying website [ci deploy skip]
