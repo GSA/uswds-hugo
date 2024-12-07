@@ -16,7 +16,7 @@ We encourage you to read this project’s Contribution Guide (you are here), its
 
 This project uses an agile approach for development. We’re trying to focus on the core capabilities that are needed to provide the greatest amount of benefit. Because we’re working on a small set of capabilities, this allows us to make very fast progress. We’re building the features that we believe solve the biggest problems to provide the most value to the most people. We provide extension points that allow uncovered cases to be supported by others.
 
-We track our current work items using GitHub [project cards](../../projects).
+We track our current work items using GitHub [project cards](https://github.com/GSA/uswds-hugo/projects).
 
 ## Making Contributions
 
@@ -24,11 +24,11 @@ Contributions are welcome to this project repository. For information on the pro
 
 ## Issue reporting and handling
 
-All requests for changes and enhancements to the repository are initiated through the project's [GitHub issue tracker](../../issues). To initiate a request, please [create a new issue](https://help.github.com/articles/creating-an-issue/). The following issue templates exist for creating a new issue:
+All requests for changes and enhancements to the repository are initiated through the project's [GitHub issue tracker](https://github.com/GSA/uswds-hugo/issues). To initiate a request, please [create a new issue](https://help.github.com/articles/creating-an-issue/). The following issue templates exist for creating a new issue:
 
-* [User Story](../../issues/new?template=feature_request.md&labels=enhancement%2C+User+Story): Use to describe a new feature or capability to be added to the project.
-* [Defect Report](../../issues/new?template=bug_report.md&labels=bug): Use to report a problem with an existing feature or capability.
-* [Question](../../issues/new?labels=question&template=question.md): Use to ask a question about the project or the contents of the repository.
+* [User Story](https://github.com/GSA/uswds-hugo/issues/new?template=feature_request.md&labels=enhancement%2C+User+Story): Use to describe a new feature or capability to be added to the project.
+* [Defect Report](https://github.com/GSA/uswds-hugo/issues/new?template=bug_report.md&labels=bug): Use to report a problem with an existing feature or capability.
+* [Question](https://github.com/GSA/uswds-hugo/issues/new?labels=question&template=question.md): Use to ask a question about the project or the contents of the repository.
 
 The project team regularly reviews the open issues, prioritizes their handling, and updates the issue statuses, proving comments on the current status as needed.
 
@@ -55,7 +55,7 @@ This repository consists of the following directories and files pertaining to th
 
 ## Contributing as a Developer
 
-This project is using the GitHub [project](../../projects) feature to track development activities as part of the core project work stream.
+This project is using the GitHub [project](https://github.com/GSA/uswds-hugo/projects) feature to track development activities as part of the core project work stream.
 
 ## Licenses and Attribution
 

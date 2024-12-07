@@ -54,13 +54,13 @@ The Extended Header is used in the [homepage](../hugo/templates/#homepage-templa
 
 {{% usa-tag %}}Component Definition{{% /usa-tag %}} [Icons](https://designsystem.digital.gov/components/icons/)
 
-A [subset](https://github.com/usnistgov/hugo-uswds/tree/master/static/img) of [Font Awesome](https://fontawesome.com/) icons are included in USWDS and can be accessed as static images using `/img/{icon-filename}`. If you need additional icons, use [Font Awesome](https://fontawesome.com/) in your project.
+A [subset](https://github.com/GSA/uswds-hugo/tree/main/dist/img) of [Font Awesome](https://fontawesome.com/) icons are included in USWDS and can be accessed as static images using `/img/{icon-filename}`. If you need additional icons, use [Font Awesome](https://fontawesome.com/) in your project.
 
 ### Search
 
 {{% usa-tag %}}Component Definition{{% /usa-tag %}} [Search](https://designsystem.digital.gov/components/search/)
 
-The search component is supported in the [Basic](#basic-header) and [Extended](#extended-header) Headers provided by the default [templates](../hugo/templates/). The default search used by these headers is provided by the `layouts/partials/header-search.html` [template](https://github.com/usnistgov/hugo-uswds/blob/master/layouts/partials/components/header-search.html). This template can by [overriden](../hugo/templates/#the-header-search-html-template) to provide a custom search.
+The search component is supported in the [Basic](#basic-header) and [Extended](#extended-header) Headers provided by the default [templates](../hugo/templates/). The default search used by these headers is provided by the `layouts/partials/header-search.html` [template](https://github.com/GSA/uswds-hugo/blob/develop/layouts/partials/components/usa-search.html). This template can by [overriden](../hugo/templates/#the-header-search-html-template) to provide a custom search.
 
 ### Side Navigation
 
