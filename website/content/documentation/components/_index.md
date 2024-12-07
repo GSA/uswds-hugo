@@ -54,7 +54,7 @@ The Extended Header is used in the [homepage](../hugo/templates/#homepage-templa
 
 {{% usa-tag %}}Component Definition{{% /usa-tag %}} [Icons](https://designsystem.digital.gov/components/icons/)
 
-A [subset](https://github.com/GSA/uswds-hugo/tree/main/dist/img) of [Font Awesome](https://fontawesome.com/) icons are included in USWDS and can be accessed as static images using `/img/{icon-filename}`. If you need additional icons, use [Font Awesome](https://fontawesome.com/) in your project.
+A [subset](https://github.com/GSA/uswds-hugo/tree/develop/dist/img) of [Font Awesome](https://fontawesome.com/) icons are included in USWDS and can be accessed as static images using `/img/{icon-filename}`. If you need additional icons, use [Font Awesome](https://fontawesome.com/) in your project.
 
 ### Search
 

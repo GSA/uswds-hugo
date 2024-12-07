@@ -42,7 +42,7 @@ jobs:
       id: linkchecker
       uses: lycheeverse/lychee-action@ec3ed119d4f44ad2673a7232460dc7dff59d2421
       with:
-        args: --exclude-file .github/workflows/config/.lycheeignore --verbose --no-progress --accept 200,206,429 './${{ inputs.site_git_ref_path }}/**/*.html' --exclude-mail
+        args: --exclude-file .github/workflows/config/.lycheeignore --verbose --no-progress --accept 200,206,429 './${{ inputs.site_git_ref_path }}/**/*.html'
         fail: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
