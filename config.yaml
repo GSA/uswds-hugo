@@ -1,4 +1,4 @@
-name: "The United States Web Design System (USWDS) 2.0 Hugo Theme"
+name: "The United States Web Design System (USWDS) 3.0 Hugo Theme"
 license: "CCO"
 licenselink: "https://github.com/GSA/uswds-hugo/blob/main/LICENSE.md"
 description: "A hugo theme based on the United States Web Design System (USWDS) v3"
@@ -16,7 +16,7 @@ based:
   repo: "https://github.com/uswds/uswds"
 module:
   hugoVersion:
-    min: 0.120.0
+    min: 0.139.3
     extended: true
   mounts:
   - source: dist/js

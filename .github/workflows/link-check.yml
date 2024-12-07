@@ -11,11 +11,6 @@ on:
         required: false
         default: '^website/'
         type: string
-      markdownLinkCheckConfig:
-        description: 'the path to the markdown link check config file'
-        required: false
-        default: 'build/config/.markdown-link-check/config.json'
-        type: string
       site_git_ref:
         description: 'git ref, a SHA commit or branch or tag, for the published HTML content'
         required: true
@@ -43,7 +38,6 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     with:
       ignorePattern: ${{ github.event.inputs.ignorePattern }}
-      markdownLinkCheckConfig: ${{ github.event.inputs.markdownLinkCheckConfig }}
       linkcheck_create_issue: ${{ contains('true', github.event.inputs.linkcheck_create_issue) }}
   schedule-validate-website-links:
     uses: ./.github/workflows/workflow-validate-website-content.yml
