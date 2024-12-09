@@ -102,7 +102,7 @@ jobs:
         npm install --loglevel verbose
         echo "$PWD/node_modules/.bin/" >> $GITHUB_PATH
     # cache hugo modules
-    - uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2
+    - uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
       with:
         path: /tmp/hugo_cache
         key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
