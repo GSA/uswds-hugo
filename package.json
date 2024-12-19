@@ -33,7 +33,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "@uswds/uswds": "^3.6.0",
+    "@uswds/uswds": "^3.11.0",
     "image-map-resizer": "^1.0.10",
     "jquery": "^3.6.4",
     "mermaid": "^10.9.3"
