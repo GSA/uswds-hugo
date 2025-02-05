@@ -17,5 +17,19 @@
       "width": 1280,
       "height": 1024
     }
-  }
+  },
+  "urls": [
+    "http://localhost:8000/",
+    "http://localhost:8000/documentation/",
+    "http://localhost:8000/documentation/components/",
+    "http://localhost:8000/documentation/hugo/",
+    "http://localhost:8000/documentation/hugo/configuration-parameters/",
+    "http://localhost:8000/documentation/hugo/customizing-css-and-js/",
+    "http://localhost:8000/documentation/hugo/shortcodes/",
+    "http://localhost:8000/documentation/hugo/templates/",
+    "http://localhost:8000/examples/",
+    "http://localhost:8000/examples/homepage/",
+    "http://localhost:8000/examples/shortcodes/",
+    "http://localhost:8000/examples/syntax-highlighting/"
+  ]
 }

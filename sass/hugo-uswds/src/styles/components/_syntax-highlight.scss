@@ -110,10 +110,10 @@ div.highlight {
       @include u-bg('yellow-5');
     }
     /* LineNumbersTable */ .lnt {
-      @include u-text('gray-50');
+      @include u-text('ink');
     }
     /* LineNumbers */ .ln {
-      @include u-text('gray-50');
+      @include u-text('gray-90');
     }
     /* Keyword */ .k {
       @include u-text('blue-warm-50v','bold');
@@ -137,7 +137,7 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* NameAttribute */ .na {
-      @include u-text('accent-cool-dark','bold');
+      @include u-text('blue-warm-80v','bold');
     }
     /* NameBuiltin */ .nb {
       @include u-text('indigo-warm-60','bold');
@@ -161,7 +161,7 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* NameFunction */ .nf {
-      @include u-text('orange-30v','bold');
+      @include u-text('red-warm-80v','bold');
     }
     /* NameLabel */ .nl {
       // Check color
@@ -191,30 +191,30 @@ div.highlight {
     }
     /* LiteralString */ .s {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-50');
     }
     /* LiteralStringAffix */ .sa {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-50');
     }
     /* LiteralStringBacktick */ .sb {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-50');
     }
     /* LiteralStringChar */ .sc {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-50');
     }
     /* LiteralStringDelimiter */ .dl {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-50');
     }
     /* LiteralStringDoc */ .sd {
-      @include u-text('mint-40','italic')
+      @include u-text('mint-50','italic')
     }
     /* LiteralStringDouble */ .s2 {
       // check color
-      @include u-text('mint-40');
+      @include u-text('mint-50');
     }
     /* LiteralStringEscape */ .se {
       // check color
@@ -347,8 +347,8 @@ div.highlight {
       @include u-text('white');
     }
     /* Background */ .chroma {
-      @include u-text('gray-5');
-      @include u-bg('gray-cool-70');
+      @include u-text('gray-60');
+      @include u-bg('gray-cool-20');
 
       /* Error */ .err {
         @include u-text('white');
@@ -358,10 +358,10 @@ div.highlight {
         @include u-bg('yellow-5');
       }
       /* LineNumbersTable */ .lnt {
-        @include u-text('gray-50');
+        @include u-text('gray-60');
       }
       /* LineNumbers */ .ln {
-        @include u-text('gray-50');
+        @include u-text('gray-60');
       }
       /* Keyword */ .k {
         @include u-text('blue-warm-50v','bold');

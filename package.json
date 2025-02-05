@@ -4,6 +4,9 @@
   "description": "Hugo theme based on the United States Web Design System",
   "main": "index.js",
   "scripts": {
+    "test": "npm run prepare && npm run serve:test",
+    "serve:test": "cd website && hugo && (npx http-server public -p 8000 & sleep 5 && pa11y-ci && kill $(lsof -t -i:8000))",
+    "build:website": "cd website && hugo --minify",
     "copy": "npm run -s copy:module:js && npm run -s copy:image-map-resizer:js && npm run -s copy:jquery:js",
     "uswds": "npx gulp update",
     "copy:module:js": "npx cpy '_bundles/*.min.{js,js.map}' dist/js",
@@ -22,15 +25,17 @@
     "url": "https://github.com/GSA/uswds-hugo"
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.32",
+    "@types/jquery": "^3.5.32"  ,
     "@uswds/compile": "^1.2.0",
     "cpy-cli": "^5.0.0",
+    "pa11y-ci": "^3.1.0",
     "rimraf": "^5.0.1",
     "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.1",
     "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "http-server": "^14.1.1"
   },
   "dependencies": {
     "@uswds/uswds": "^3.6.0",
