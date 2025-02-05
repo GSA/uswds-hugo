@@ -92,21 +92,6 @@ jobs:
       - name: Install pa11y-ci
         run: npm install -g pa11y-ci
 
-      - name: Create pa11y config
-        working-directory: website
-        run: |
-          cat > .pa11yci << 'EOL'
-          {
-            "defaults": {
-              "timeout": 30000,
-              "wait": 1000,
-              "chromeLaunchConfig": {
-                "args": ["--no-sandbox"]
-              }
-            }
-          }
-          EOL
-
       - name: Run pa11y-ci for 508 Compliance
         working-directory: website
         id: pa11y
@@ -120,7 +105,7 @@ jobs:
           echo "pa11y_exit_code=$?" >> $GITHUB_ENV
 
       - name: Upload 508 Compliance Report
-        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08
+        uses: actions/upload-artifact@v4
         with:
           name: pa11y-report
           path: website/pa11y_report.md
