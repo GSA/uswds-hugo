@@ -1,0 +1,134 @@
+name: 508 Compliance
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "release/*"
+      - "feature/*"
+  workflow_dispatch:
+    inputs:
+      linkcheck_fail_on_error:
+        description: 'A boolean flag that determines if bad links found by the link checker fail fast'
+        required: false
+        default: true
+        type: boolean
+      linkcheck_create_issue:
+        description: 'Create new GitHub issue if broken links are found'
+        required: false
+        default: false
+        type: boolean
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  INPUT_FAIL_ON_ERROR: ${{ github.event.inputs.linkcheck_fail_on_error || 'true' }}
+  INPUT_ISSUE_ON_ERROR: ${{ github.event.inputs.linkcheck_create_issue || 'false' }}
+
+jobs:
+  build-and-test-website:
+    name: Build and 508 Compliance Test
+    runs-on: ubuntu-20.04
+    env:
+      BUILD_PATH: ./public
+    permissions:
+      contents: write
+    steps:
+      - name: Manage GH_TOKEN
+        if: env.GH_TOKEN == ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: echo "GH_TOKEN=${GITHUB_TOKEN}" >> $GITHUB_ENV
+
+      - name: Checkout Latest
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          submodules: recursive
+
+      - name: Setup Swap Space
+        uses: pierotofy/set-swap-space@49819abfb41bd9b44fb781159c033dba90353a7c
+        with:
+          swap-size-gb: 10
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a
+        with:
+          node-version-file: '../.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: ../package-lock.json
+
+      - name: Setup Dependencies
+        working-directory: ..
+        run: |
+          npm install --loglevel verbose
+          echo "$PWD/node_modules/.bin/" >> $GITHUB_PATH
+          sudo snap install dart-sass
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Cache Hugo Modules
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+
+      - name: Build Hugo Site
+        working-directory: website
+        run: |
+          hugo -e staging --logLevel debug -d public
+
+      - name: Serve site for 508 Compliance Test
+        working-directory: website
+        run: |
+          npx http-server public -p 8080 &
+          sleep 5
+
+      - name: Install pa11y-ci
+        run: npm install -g pa11y-ci
+
+      - name: Create pa11y config
+        working-directory: website
+        run: |
+          cat > .pa11yci << 'EOL'
+          {
+            "defaults": {
+              "timeout": 30000,
+              "wait": 1000,
+              "chromeLaunchConfig": {
+                "args": ["--no-sandbox"]
+              }
+            }
+          }
+          EOL
+
+      - name: Run pa11y-ci for 508 Compliance
+        working-directory: website
+        id: pa11y
+        run: |
+          pa11y-ci \
+            --sitemap http://localhost:8080/sitemap.xml \
+            --sitemap-find "https://automate.fedramp.gov/hugo-uswds" \
+            --sitemap-replace "http://localhost:8080" \
+            --sitemap-exclude "/*.pdf" \
+            --config .pa11yci > pa11y_report.md
+          echo "pa11y_exit_code=$?" >> $GITHUB_ENV
+
+      - name: Upload 508 Compliance Report
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08
+        with:
+          name: pa11y-report
+          path: website/pa11y_report.md
+          retention-days: 5
+
+      - name: Fail on 508 Compliance Issues
+        if: ${{ env.pa11y_exit_code != '0' }}
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        with:
+          script: |
+            core.setFailed('508 compliance test failed; please review the pa11y report.')
