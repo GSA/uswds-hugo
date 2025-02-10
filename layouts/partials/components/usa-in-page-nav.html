@@ -14,7 +14,7 @@
   {{- $headingSelectors := delimit $headingLevels ", " -}}
 <aside class="site-in-page-nav" aria-label="On this page" data-heading-selectors="{{$headingSelectors}}" data-scroll-offset="-120" data-root-margin="48px 0px -90% 0px" data-threshold="1">
   <nav class="usa-in-page-nav__nav" aria-label="On this page">
-    <h4 class="usa-in-page-nav__heading" tabindex="0">On this page</h4>
+    <h2 class="usa-in-page-nav__heading" tabindex="0">On this page</h2>
     {{- template "in-page-nav-list" (dict "page" .Page "headings" $headings) -}}
   </nav>
 </aside>

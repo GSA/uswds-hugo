@@ -21,6 +21,6 @@
   {{- end -}}
 
   <li class="{{ delimit $itemClasses " " }}">
-    <a href="{{ $page.RelPermalink }}" class="{{ delimit $anchorClasses " " }}"{{ if eq $page $activePage }} aria-current="page"{{end}}><span>{{ $page.LinkTitle }}</span></a>
+    <a href="{{ $page.RelPermalink }}" class="{{ delimit $anchorClasses " " }}"{{ if eq $page $activePage }} aria-current="page"{{end}}>{{ $page.LinkTitle }}</a>
   </li>
 {{- end -}}

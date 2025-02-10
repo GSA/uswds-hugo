@@ -5,7 +5,7 @@
   {{- range .Params -}}
     {{- $tabName := . -}}
     {{- $tabId := printf "%s-%s-tab" $guid ((lower $tabName) | anchorize) -}}
-    <li class="codetab"><button class="usa-accordion__button" aria-expanded="true" aria-controls="{{ $tabId }}"><span>{{ $tabName }}</span></button></li>
+    <li class="codetab"><button class="usa-accordion__button" aria-expanded="true" aria-controls="{{ $tabId }}">{{ $tabName }}</button></li>
   {{- end -}}
   </ul>
   <div id="{{ printf "%s-content" $guid }}" class="codetab-content">

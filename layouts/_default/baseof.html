@@ -55,7 +55,9 @@
 {{- end -}}
 
 {{- if ne .Kind "404" }}
-  <p class="font-sans-sm text-center" style="margin: 1.5rem auto; clear: both;">This page was last updated on {{ .Lastmod.Format "January 2, 2006" }}.{{ if .Site.Params.contentrepopath }} <a href="{{ .Site.Params.contentrepopath }}/{{ with .File }}{{ .Path }}{{ end }}">Improve this Page.</a>{{ end }}</p>
+  <footer>
+    <p class="font-sans-sm text-center" style="margin: 1.5rem auto; clear: both;">This page was last updated on {{ .Lastmod.Format "January 2, 2006" }}.{{ if .Site.Params.contentrepopath }} <a href="{{ .Site.Params.contentrepopath }}/{{ with .File }}{{ .Path }}{{ end }}">Improve this Page.</a>{{ end }}</p>
+  </footer>
 {{- end -}}
 
 {{- range .Site.Params.custom_js }}
