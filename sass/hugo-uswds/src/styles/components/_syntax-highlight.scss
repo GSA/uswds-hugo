@@ -113,10 +113,10 @@ div.highlight {
       @include u-text('blue-warm-50v','bold');
     }
     /* KeywordConstant */ .kc {
-      @include u-text('blue-warm-50v','bold');
+      @include u-text('primary-dark','bold');
     }
     /* KeywordDeclaration */ .kd {
-      @include u-text('blue-warm-50v','bold');
+      @include u-text('primary-dark','bold');
     }
     /* KeywordNamespace */ .kn {
       @include u-text('blue-warm-50v','bold');
@@ -168,8 +168,7 @@ div.highlight {
       @include u-text('primary','bold');
     }
     /* NameVariable */ .nv {
-      // Check color
-      @include u-text('violet-warm-50');
+      @include u-text('violet-70v');
     }
     /* NameVariableClass */ .vc {
       // Check color
@@ -265,7 +264,7 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* Operator */ .o {
-      @include u-text('blue-warm-50v');
+      @include u-text('primary-dark');
     }
     /* OperatorWord */ .ow {
       @include u-text('blue-warm-50v','bold');
@@ -360,10 +359,10 @@ div.highlight {
         @include u-text('blue-warm-50v','bold');
       }
       /* KeywordConstant */ .kc {
-        @include u-text('blue-warm-50v','bold');
+        @include u-text('primary-dark','bold');
       }
       /* KeywordDeclaration */ .kd {
-        @include u-text('blue-warm-50v','bold');
+        @include u-text('primary-dark','bold');
       }
       /* KeywordNamespace */ .kn {
         @include u-text('blue-warm-50v','bold');
@@ -415,8 +414,7 @@ div.highlight {
         @include u-text('blue-cool-20v','bold');
       }
       /* NameVariable */ .nv {
-        // Check color
-        @include u-text('violet-warm-50');
+        @include u-text('violet-70v');
       }
       /* NameVariableClass */ .vc {
         // Check color
@@ -512,7 +510,7 @@ div.highlight {
         @include u-text('indigo-warm-60','bold');
       }
       /* Operator */ .o {
-        @include u-text('blue-warm-50v');
+        @include u-text('primary-dark');
       }
       /* OperatorWord */ .ow {
         @include u-text('blue-warm-50v','bold');

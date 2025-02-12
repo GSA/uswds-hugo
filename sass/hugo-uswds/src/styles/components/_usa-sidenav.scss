@@ -33,9 +33,10 @@
     }
   }
   .usa-current {
-    border-left: units("05") solid #004880;
+    border-left: units("05") solid color("base");
     margin-left: calc(-1 * units("05"));
-    color: #004880;
+    color: color("base");
+    background-color: color("white");
 
     &::after {
       display: none;
