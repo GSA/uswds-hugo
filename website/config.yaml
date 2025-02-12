@@ -1,6 +1,6 @@
 # Default page title
 title: "Hugo USWDS"
-baseURL: https://localhost:1313/ # The base URL of the site
+baseURL: https://gsa.gov/hugo-uswds/ # The base URL of the site
 #canonifyurls: true # Creates absolute URLs for all links in the site
 defaultContentLanguage: en # The default language provided by the site
 languageCode: "en-us"
