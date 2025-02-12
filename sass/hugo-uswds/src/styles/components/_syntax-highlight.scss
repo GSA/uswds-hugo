@@ -26,7 +26,7 @@ div.highlight {
     @include u-margin(0);
     display: block;
     box-shadow: none;
-    background-color: whitesmoke!important;
+    @include u-bg('base-lightest');
     @include u-font('mono','sm');
     @include u-line-height('mono',5);
 //    @include u-font-family('mono');
