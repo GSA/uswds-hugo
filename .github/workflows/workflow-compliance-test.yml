@@ -1,0 +1,60 @@
+name: Compliance Test
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+    - main
+    - develop
+    - "feature/*"
+    - "release/*"
+
+jobs:
+  compliance-test:
+    name: Run Compliance Tests
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Checkout Latest
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      with:
+        submodules: recursive
+
+    # Install Hugo
+    - name: Read .env
+      id: hugo-version
+      run: |
+        . .github/workflows/config/.env
+        echo "HUGO_VERSION=${HUGO_VERSION}" >> "${GITHUB_OUTPUT}"
+
+    - uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed
+      with:
+        go-version: '1.21'  
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@16361eb4acea8698b220b76c0d4e84e1fd22c61d
+      with:
+        hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
+        extended: true
+
+    - name: Set up NodeJS
+      uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+      with:
+        node-version-file: '.github/workflows/config/.nvmrc'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+
+    - name: Install Dependencies
+      run: |
+        npm install --loglevel verbose
+        npm install -D pa11y-ci
+
+    # Start Hugo server in background
+    - name: Start Hugo Server
+      run: |
+        cd website
+        hugo serve -D --port 1313 --bind 0.0.0.0 &
+        echo "Waiting for Hugo server to start..."
+        sleep 10
+
+    # Run compliance tests
+    - name: Run Compliance Tests
+      run: npm run test:compliance
