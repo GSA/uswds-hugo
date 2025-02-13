@@ -1,11 +1,7 @@
 @use "uswds-core" as *;
 
 div.highlight {
-//  @include u-display('flex');
-
   @include u-border(1px,'solid','base-light');
-//  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.5);
-
   a:visited {
     color: inherit;
   }
@@ -29,18 +25,10 @@ div.highlight {
     @include u-bg('base-lightest');
     @include u-font('mono','sm');
     @include u-line-height('mono',5);
-//    @include u-font-family('mono');
-//  background-color: inherit;
-//    box-shadow: none;
   }
   /* LineTableTD */ .lntd {
-//    @include u-vertical-align('top');
     @include u-padding(0);
-    //    @include u-margin(0);
-//    @include u-border(0);
     @include u-border('1px','solid','base-lighter');
-    // background-color: inherit;
-
     >pre {
       @include u-margin(0);
       >code {
@@ -49,15 +37,12 @@ div.highlight {
     }
 
     &:nth-child(1) {
-//      width: max-content;
       > pre {
         @include u-padding-right(0);
       }
     }
 
     &:nth-child(2) {
-//      @include u-padding-x('05');
-//      @include u-padding-y(0);
       width: 100%;
     }
 
@@ -68,9 +53,6 @@ div.highlight {
   /* LineTable */ .lntable {
     @include u-padding(0);
     @include u-margin(0);
-//    @include u-border(0);
-//    @include u-width('full');
-//    border-spacing: 0;
     display: block;
     td {
       @include u-border-right('1px','solid','base-lighter');
@@ -587,16 +569,7 @@ div.highlight {
   }
 }
 
-/*
-div.highlight  > div.chroma {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-*/
-
 code.language-YAML {
-  //@include u-text('accent-cool-dark');  /*#000080*/
-  //@include u-text('bold');
   .p {
     @include u-text('bold');
   }
