@@ -155,7 +155,7 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* NameFunction */ .nf {
-      @include u-text('black','bold');
+      @include u-text('secondary-darker','bold');
     }
     /* NameLabel */ .nl {
       // Check color
