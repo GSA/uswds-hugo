@@ -11,7 +11,7 @@ on:
 jobs:
   compliance-test:
     name: Run Compliance Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout Latest
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
