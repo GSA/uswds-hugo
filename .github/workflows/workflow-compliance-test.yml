@@ -47,14 +47,47 @@ jobs:
         npm install --loglevel verbose
         npm install -D pa11y-ci
 
-    # Start Hugo server in background
+    # Start Hugo server in background and wait for it to be ready
     - name: Start Hugo Server
       run: |
         cd website
-        hugo serve&
+        hugo serve --bind 0.0.0.0 --baseURL http://localhost:1313/hugo-uswds/ &
+        HUGO_PID=$!
+        echo "Hugo server started with PID: $HUGO_PID"
+        
+        # Check port binding
+        echo "Checking network status..."
+        netstat -tlpn
+        
         echo "Waiting for Hugo server to start..."
-        sleep 3
+        
+        # Wait for up to 30 seconds for the server to be ready
+        max_attempts=30
+        attempt=1
+        while ! curl -s --head http://localhost:1313/hugo-uswds/ > /dev/null; do
+          if [ $attempt -gt $max_attempts ]; then
+            echo "Server failed to start after $max_attempts seconds"
+            exit 1
+          fi
+          echo "Attempt $attempt: Server not ready yet, waiting..."
+          sleep 1
+          attempt=$((attempt + 1))
+        done
+        
+        echo "Server is ready!"
+        echo "Network status after server start:"
+        netstat -tlpn
+        echo "Testing server response:"
+        curl -I http://localhost:1313/hugo-uswds/
+        echo "Process status:"
+        ps aux | grep hugo
 
-    # Run compliance tests
+    # Run compliance tests with increased verbosity
     - name: Run Compliance Tests
-      run: npm run test:compliance
+      run: |
+        # Verify sitemap is accessible
+        echo "Testing sitemap access..."
+        curl -v http://localhost:1313/hugo-uswds/sitemap.xml
+        
+        echo "Running pa11y-ci tests..."
+        npm run test:compliance
