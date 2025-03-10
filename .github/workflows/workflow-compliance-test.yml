@@ -42,10 +42,24 @@ jobs:
         cache: 'npm'
         cache-dependency-path: package-lock.json
 
+    - name: Install Chrome
+      run: |
+        echo "Installing Chrome..."
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        google-chrome --version
+
     - name: Install Dependencies
       run: |
         npm install --loglevel verbose
-        npm install -D pa11y-ci
+        
+        # Verify pa11y-ci installation
+        echo "Checking pa11y-ci installation..."
+        npx pa11y-ci --version
+        which pa11y-ci || echo "pa11y-ci not in PATH"
+        ls -la node_modules/.bin/pa11y-ci || echo "pa11y-ci not in node_modules/.bin"
 
     # Start Hugo server in background and wait for it to be ready
     - name: Start Hugo Server
@@ -89,5 +103,5 @@ jobs:
         echo "Testing sitemap access..."
         curl -v http://localhost:1313/hugo-uswds/sitemap.xml
         
-        echo "Running pa11y-ci tests..."
-        npm run test:compliance
+        echo "Running pa11y-ci tests with debug logging..."
+        DEBUG=pa11y* CHROME_PATH=$(which google-chrome) npm run test:compliance
