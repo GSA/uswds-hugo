@@ -6,6 +6,7 @@
   "scripts": {
     "copy": "npm run -s copy:module:js && npm run -s copy:image-map-resizer:js && npm run -s copy:jquery:js",
     "uswds": "npx gulp update",
+    "test:compliance":"pa11y-ci --sitemap http://localhost:1313/hugo-uswds/sitemap.xml",
     "copy:module:js": "npx cpy '_bundles/*.min.{js,js.map}' dist/js",
     "copy:image-map-resizer:js": "npx cpy node_modules/image-map-resizer/js/imageMapResizer.min.js dist/js --flat",
     "copy:jquery:js": "npx cpy 'node_modules/jquery/dist/jquery.min.{js,map}' dist/js --flat",
@@ -25,6 +26,7 @@
     "@types/jquery": "^3.5.32",
     "@uswds/compile": "^1.2.0",
     "cpy-cli": "^5.0.0",
+    "pa11y-ci": "^3.0.1",
     "rimraf": "^5.0.1",
     "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.4.4",

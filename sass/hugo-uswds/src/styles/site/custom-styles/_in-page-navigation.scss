@@ -83,7 +83,7 @@
           }
         }
         &.usa-current {
-          color: #005ea2;
+          color:color('blue-80');
           font-weight: bold;
           &::after {
             background-color: inherit;

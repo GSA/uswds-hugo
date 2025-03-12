@@ -25,7 +25,7 @@ menu:
 # Configures this theme
 module:
   imports:
-    - path: "github.com/GSA/hugo-uswds"
+    - path: "../.."
 # The following custom parameters are used by the page
 # templates and components.
 params:

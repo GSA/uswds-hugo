@@ -5,3 +5,17 @@
     line-height: line-height($theme-header-font-family, 2);
   }
 }
+
+.usa-nav__primary {
+  .usa-accordion__button {
+    color: #565c65;
+
+    span {
+      color: inherit;
+    }
+  }
+
+  .usa-nav__link {
+    color: #565c65;
+  }
+}

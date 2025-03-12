@@ -1,0 +1,107 @@
+name: Compliance Test
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+    - main
+    - develop
+    - "feature/*"
+    - "release/*"
+
+jobs:
+  compliance-test:
+    name: Run Compliance Tests
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout Latest
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      with:
+        submodules: recursive
+
+    # Install Hugo
+    - name: Read .env
+      id: hugo-version
+      run: |
+        . .github/workflows/config/.env
+        echo "HUGO_VERSION=${HUGO_VERSION}" >> "${GITHUB_OUTPUT}"
+
+    - uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed
+      with:
+        go-version: '1.21'  
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@16361eb4acea8698b220b76c0d4e84e1fd22c61d
+      with:
+        hugo-version: '${{ steps.hugo-version.outputs.HUGO_VERSION }}'
+        extended: true
+
+    - name: Set up NodeJS
+      uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
+      with:
+        node-version-file: '.github/workflows/config/.nvmrc'
+        cache: 'npm'
+        cache-dependency-path: package-lock.json
+
+    - name: Install Chrome
+      run: |
+        echo "Installing Chrome..."
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        google-chrome --version
+
+    - name: Install Dependencies
+      run: |
+        npm install --loglevel verbose
+        
+        # Verify pa11y-ci installation
+        echo "Checking pa11y-ci installation..."
+        npx pa11y-ci --version
+        which pa11y-ci || echo "pa11y-ci not in PATH"
+        ls -la node_modules/.bin/pa11y-ci || echo "pa11y-ci not in node_modules/.bin"
+
+    # Start Hugo server in background and wait for it to be ready
+    - name: Start Hugo Server
+      run: |
+        cd website
+        hugo serve --bind 0.0.0.0 --baseURL http://localhost:1313/hugo-uswds/ &
+        HUGO_PID=$!
+        echo "Hugo server started with PID: $HUGO_PID"
+        
+        # Check port binding
+        echo "Checking network status..."
+        netstat -tlpn
+        
+        echo "Waiting for Hugo server to start..."
+        
+        # Wait for up to 30 seconds for the server to be ready
+        max_attempts=30
+        attempt=1
+        while ! curl -s --head http://localhost:1313/hugo-uswds/ > /dev/null; do
+          if [ $attempt -gt $max_attempts ]; then
+            echo "Server failed to start after $max_attempts seconds"
+            exit 1
+          fi
+          echo "Attempt $attempt: Server not ready yet, waiting..."
+          sleep 1
+          attempt=$((attempt + 1))
+        done
+        
+        echo "Server is ready!"
+        echo "Network status after server start:"
+        netstat -tlpn
+        echo "Testing server response:"
+        curl -I http://localhost:1313/hugo-uswds/
+        echo "Process status:"
+        ps aux | grep hugo
+
+    # Run compliance tests with increased verbosity
+    - name: Run Compliance Tests
+      run: |
+        # Verify sitemap is accessible
+        echo "Testing sitemap access..."
+        curl -v http://localhost:1313/hugo-uswds/sitemap.xml
+        
+        echo "Running pa11y-ci tests with debug logging..."
+        DEBUG=pa11y* CHROME_PATH=$(which google-chrome) npm run test:compliance

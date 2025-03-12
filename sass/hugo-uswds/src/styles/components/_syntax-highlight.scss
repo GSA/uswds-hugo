@@ -1,11 +1,7 @@
 @use "uswds-core" as *;
 
 div.highlight {
-//  @include u-display('flex');
-  @include u-bg('base-lightest');
   @include u-border(1px,'solid','base-light');
-//  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.5);
-
   a:visited {
     color: inherit;
   }
@@ -14,9 +10,7 @@ div.highlight {
     @include u-padding(0);
     @include u-margin(0);
   }
-  > pre.chroma {
-//    width: max-content;
-  }
+  
   > div.chroma, > pre.chroma {
     @include u-overflow-x('auto');
     @include u-overflow-y('hidden');
@@ -27,23 +21,14 @@ div.highlight {
     @include u-padding-x(1);
     @include u-margin(0);
     display: block;
-    background-color: inherit;
     box-shadow: none;
-  
+    @include u-bg('base-lightest');
     @include u-font('mono','sm');
     @include u-line-height('mono',5);
-//    @include u-font-family('mono');
-//    background-color: inherit;
-//    box-shadow: none;
   }
   /* LineTableTD */ .lntd {
-//    @include u-vertical-align('top');
     @include u-padding(0);
-    //    @include u-margin(0);
-//    @include u-border(0);
     @include u-border('1px','solid','base-lighter');
-    background-color: inherit;
-
     >pre {
       @include u-margin(0);
       >code {
@@ -52,19 +37,13 @@ div.highlight {
     }
 
     &:nth-child(1) {
-//      width: max-content;
       > pre {
         @include u-padding-right(0);
       }
     }
 
     &:nth-child(2) {
-//      @include u-padding-x('05');
-//      @include u-padding-y(0);
       width: 100%;
-      > pre {
-
-      }
     }
 
     .line {
@@ -74,9 +53,6 @@ div.highlight {
   /* LineTable */ .lntable {
     @include u-padding(0);
     @include u-margin(0);
-//    @include u-border(0);
-//    @include u-width('full');
-//    border-spacing: 0;
     display: block;
     td {
       @include u-border-right('1px','solid','base-lighter');
@@ -110,19 +86,19 @@ div.highlight {
       @include u-bg('yellow-5');
     }
     /* LineNumbersTable */ .lnt {
-      @include u-text('gray-50');
+      @include u-text('gray-60');
     }
     /* LineNumbers */ .ln {
-      @include u-text('gray-50');
+      @include u-text('gray-60');
     }
     /* Keyword */ .k {
       @include u-text('blue-warm-50v','bold');
     }
     /* KeywordConstant */ .kc {
-      @include u-text('blue-warm-50v','bold');
+      @include u-text('primary-dark','bold');
     }
     /* KeywordDeclaration */ .kd {
-      @include u-text('blue-warm-50v','bold');
+      @include u-text('primary-dark','bold');
     }
     /* KeywordNamespace */ .kn {
       @include u-text('blue-warm-50v','bold');
@@ -137,7 +113,7 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* NameAttribute */ .na {
-      @include u-text('accent-cool-dark','bold');
+      @include u-text('blue-warm-70v','bold');
     }
     /* NameBuiltin */ .nb {
       @include u-text('indigo-warm-60','bold');
@@ -152,7 +128,7 @@ div.highlight {
       @include u-text('blue-cool-50');
     }
     /* NameDecorator */ .nd {
-      @include u-text('orange-30v','bold');
+      @include u-text('orange-60','bold');
     }
     /* NameEntity */ .ni {
       @include u-text('indigo-warm-60','bold');
@@ -161,7 +137,7 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* NameFunction */ .nf {
-      @include u-text('orange-30v','bold');
+      @include u-text('secondary-darker','bold');
     }
     /* NameLabel */ .nl {
       // Check color
@@ -174,8 +150,7 @@ div.highlight {
       @include u-text('primary','bold');
     }
     /* NameVariable */ .nv {
-      // Check color
-      @include u-text('violet-warm-50');
+      @include u-text('violet-70v');
     }
     /* NameVariableClass */ .vc {
       // Check color
@@ -191,30 +166,30 @@ div.highlight {
     }
     /* LiteralString */ .s {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-60');
     }
     /* LiteralStringAffix */ .sa {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-60');
     }
     /* LiteralStringBacktick */ .sb {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-60');
     }
     /* LiteralStringChar */ .sc {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-60');
     }
     /* LiteralStringDelimiter */ .dl {
       // Check color
-      @include u-text('mint-40');
+      @include u-text('mint-60');
     }
     /* LiteralStringDoc */ .sd {
-      @include u-text('mint-40','italic')
+      @include u-text('mint-60','italic')
     }
     /* LiteralStringDouble */ .s2 {
       // check color
-      @include u-text('mint-40');
+      @include u-text('mint-60');
     }
     /* LiteralStringEscape */ .se {
       // check color
@@ -226,7 +201,7 @@ div.highlight {
     }
     /* LiteralStringInterpol */ .si {
       // check color
-      @include u-text('blue-30','italic')
+      @include u-text('blue-50','italic')
     }
     /* LiteralStringOther */ .sx {
       @include u-text('blue-cool-50');
@@ -271,13 +246,13 @@ div.highlight {
       @include u-text('indigo-warm-60','bold');
     }
     /* Operator */ .o {
-      @include u-text('blue-warm-50v');
+      @include u-text('primary-dark');
     }
     /* OperatorWord */ .ow {
       @include u-text('blue-warm-50v','bold');
     }
     /* Comment */ .c {
-      @include u-text('blue-50v','italic')
+      @include u-text('blue-70v','italic')
     }
     /* CommentHashbang */ .ch {
       @include u-text('blue-50v','italic')
@@ -286,17 +261,17 @@ div.highlight {
       @include u-text('blue-50v','italic')
     }
     /* CommentSingle */ .c1 {
-      @include u-text('blue-50v','italic')
+      @include u-text('blue-70v','italic')
     }
     /* CommentSpecial */ .cs {
       @include u-text('blue-50v');
       @include u-bg('red-10v');
     }
     /* CommentPreproc */ .cp {
-      @include u-text('green-cool-50v','italic')
+      @include u-text('green-cool-70v','italic')
     }
     /* CommentPreprocFile */ .cpf {
-      @include u-text('green-cool-50v','italic');
+      @include u-text('green-cool-70v','italic');
     }
     /* GenericDeleted */ .gd {
       @include u-border('red-60v',2px);
@@ -316,7 +291,7 @@ div.highlight {
       @include u-bg('green-10v');
     }
     /* GenericOutput */ .go {
-      @include u-text('gray-30');
+      @include u-text('gray-50');
     }
     /* GenericPrompt */ .gp {
       @include u-text('blue-warm-50v','bold');
@@ -348,7 +323,6 @@ div.highlight {
     }
     /* Background */ .chroma {
       @include u-text('gray-5');
-      @include u-bg('gray-cool-70');
 
       /* Error */ .err {
         @include u-text('white');
@@ -367,10 +341,10 @@ div.highlight {
         @include u-text('blue-warm-50v','bold');
       }
       /* KeywordConstant */ .kc {
-        @include u-text('blue-warm-50v','bold');
+        @include u-text('primary-dark','bold');
       }
       /* KeywordDeclaration */ .kd {
-        @include u-text('blue-warm-50v','bold');
+        @include u-text('primary-dark','bold');
       }
       /* KeywordNamespace */ .kn {
         @include u-text('blue-warm-50v','bold');
@@ -400,7 +374,7 @@ div.highlight {
         @include u-text('blue-cool-50');
       }
       /* NameDecorator */ .nd {
-        @include u-text('orange-30v','bold');
+        @include u-text('black','bold');
       }
       /* NameEntity */ .ni {
         @include u-text('indigo-warm-60','bold');
@@ -409,7 +383,7 @@ div.highlight {
         @include u-text('indigo-warm-60','bold');
       }
       /* NameFunction */ .nf {
-        @include u-text('orange-30v','bold');
+        @include u-text('black','bold');
       }
       /* NameLabel */ .nl {
         // Check color
@@ -422,8 +396,7 @@ div.highlight {
         @include u-text('blue-cool-20v','bold');
       }
       /* NameVariable */ .nv {
-        // Check color
-        @include u-text('violet-warm-50');
+        @include u-text('violet-70v');
       }
       /* NameVariableClass */ .vc {
         // Check color
@@ -474,7 +447,7 @@ div.highlight {
       }
       /* LiteralStringInterpol */ .si {
         // check color
-        @include u-text('blue-30','italic')
+        @include u-text('blue-50','italic')
       }
       /* LiteralStringOther */ .sx {
         @include u-text('blue-cool-50');
@@ -519,7 +492,7 @@ div.highlight {
         @include u-text('indigo-warm-60','bold');
       }
       /* Operator */ .o {
-        @include u-text('blue-warm-50v');
+        @include u-text('primary-dark');
       }
       /* OperatorWord */ .ow {
         @include u-text('blue-warm-50v','bold');
@@ -564,7 +537,7 @@ div.highlight {
         @include u-bg('green-10v');
       }
       /* GenericOutput */ .go {
-        @include u-text('gray-30');
+        @include u-text('gray-50');
       }
       /* GenericPrompt */ .gp {
         @include u-text('blue-warm-50v','bold');
@@ -596,16 +569,7 @@ div.highlight {
   }
 }
 
-/*
-div.highlight  > div.chroma {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-*/
-
 code.language-YAML {
-  //@include u-text('accent-cool-dark');  /*#000080*/
-  //@include u-text('bold');
   .p {
     @include u-text('bold');
   }
